@@ -18,6 +18,7 @@ const agentChat = async (req, res) => {
       success: true,
       answer: result.answer,
       log: result.log,
+      history: result.history, // Trả history về để client gửi lại ở lần chat tiếp theo
     });
   } catch (error) {
     console.error('Agent chat error:', error);
