@@ -57,6 +57,7 @@ Server sẽ mặc định chạy tại: `http://localhost:5000`
 
 ## 📖 Hướng dẫn API (Endpoints)
 
+### Công việc (Tasks)
 | Method | Endpoint | Mô tả |
 | :--- | :--- | :--- |
 | **GET** | `/api/tasks` | Lấy toàn bộ danh sách task |
@@ -64,6 +65,14 @@ Server sẽ mặc định chạy tại: `http://localhost:5000`
 | **PUT** | `/api/tasks/:id` | Cập nhật thông tin task |
 | **DELETE** | `/api/tasks/:id` | Xóa một task |
 | **POST** | `/api/tasks/:id/suggest` | **Gọi AI gợi ý cho task này** |
+| **POST** | `/api/tasks/ai-generate` | Tạo task hoàn chỉnh từ một prompt ngôn ngữ tự nhiên |
+
+### Trợ lý AI (Agent)
+| Method | Endpoint | Mô tả |
+| :--- | :--- | :--- |
+| **POST** | `/api/agent/chat` | Chat với AI Agent (gửi message + history) |
+| **GET** | `/api/agent/chat/:taskId` | Lấy lại lịch sử chat của một task cụ thể |
+
 
 ### Cách sử dụng tính năng AI:
 Khi bạn gọi endpoint `/api/tasks/:id/suggest`, AI sẽ dựa trên `title` và `description` của task đó để trả về:

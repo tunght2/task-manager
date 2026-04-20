@@ -4,13 +4,17 @@ const { getAISuggestions, generateTask } = require('../services/aiService');
 // @desc    Get all tasks
 // @route   GET /api/tasks
 const getTasks = async (req, res) => {
+  console.log('GET /api/tasks request received');
   try {
     const tasks = await Task.find().sort({ createdAt: -1 });
+    console.log(`Found ${tasks.length} tasks`);
     res.status(200).json({ success: true, count: tasks.length, data: tasks });
   } catch (error) {
+    console.error('getTasks error:', error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
 
 // @desc    Create new task
 // @route   POST /api/tasks
